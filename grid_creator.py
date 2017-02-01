@@ -33,7 +33,34 @@ minus = '-'
 
 You can also multiply strings:
 '+' * 10 ===> '++++++++++'
-
+'''
+def kola():
+    for j in range(2):
+        if j<1:
+            print("+",end=" ")
+            for i in range(8):
+                print("-",end=" ")
+            print("+", end=" ")
+            for i in range(8):
+                print("-", end=" ")
+            print("+")
+        for i in range(6):
+            print("|",end=" ")
+            for i in range(8):
+                print(" ",end=" ")
+            print("|",end=" ")
+            for i in range(8):
+                print(" ",end=" ")
+            print("|")
+        print("+",end=" ")
+        for i in range(8):
+            print("-",end=" ")
+        print("+",end=" ")
+        for i in range(8):
+            print("-",end=" ")
+        print("+")
+kola()
+'''
 Part 2
 Making it more general
 
@@ -70,6 +97,86 @@ print_grid(15) prints a larger grid:
 |               |               |
 |               |               |
 + - - - - - - - + - - - - - - - +
+'''
+def cela(n):
+    def beggining():
+        x = n
+        if (x) % 2 != 0:
+            x += 1
+        if (x > 6):
+            print("+", end=" ")
+            for i in range((x - 3) // 2):
+                print("-", end=" ")
+            print("+", end=" ")
+            for i in range((x - 3) // 2):
+                print("-", end=" ")
+            print("+")
+        else:
+            print("+", end=" ")
+            for i in range(1):
+                print("-", end=" ")
+            print("+", end=" ")
+            for i in range(1):
+                print("-", end=" ")
+            print("+")
+
+
+    def middle():
+        x = n
+        if (x) % 2 != 0:
+            x += 1
+        if x > 6:
+            for i in range((x - 3) // 2 - 1):
+                print("|", end=" ")
+                for i in range((x - 3) // 2):
+                    print(" ", end=" ")
+                print("|", end=" ")
+                for i in range((x - 3) // 2):
+                    print(" ", end=" ")
+                print("|")
+        else:
+            for i in range(1):
+                print("|", end=" ")
+                for i in range((1)):
+                    print(" ", end=" ")
+                print("|", end=" ")
+                for i in range((1)):
+                    print(" ", end=" ")
+                print("|")
+
+
+    def end():
+        x = n
+        if (x) % 2 != 0:
+            x += 1
+
+        if (x > 6):
+            print("+", end=" ")
+            for i in range((x - 3) // 2):
+                print("-", end=" ")
+            print("+", end=" ")
+            for i in range((x - 3) // 2):
+                print("-", end=" ")
+            print("+")
+        else:
+            print("+", end=" ")
+            for i in range(1):
+                print("-", end=" ")
+            print("+", end=" ")
+            for i in range(1):
+                print("-", end=" ")
+            print("+")
+            #I defined the functions inside the main function. I guess I could have used a class but I don't think we were supposed to
+            #I did this to handle the scope issue of n being defined.
+    for j in range(2):
+            if j<1:
+                beggining()
+            middle()
+            end()
+
+cela(3)
+
+'''
 
 Part 3:
 Even more general...
@@ -121,3 +228,85 @@ Another example: print_grid2(5,3):
 |       |       |       |       |       |
 + - - - + - - - + - - - + - - - + - - - +
 '''
+
+def cela1(n,m):
+    def beggining():
+        zborce=0
+        x = n
+        if (x) % 2 != 0:
+            x += 1
+        for i in range(n):
+                zborce+=1
+                if (x > 6):
+                        if(i==0):
+                            print("+", end=" ")
+                        for i in range(m):
+                            print("-", end=" ")
+                        if (zborce <= n-1):
+                            print("+", end=" ")
+                        else:
+                            print("+")
+
+                else:
+                    if(i==0):
+                        print("+", end=" ")
+                    for i in range(m):
+                        print("-", end=" ")
+                    if (zborce<=n-1):
+                        print("+", end=" ")
+                    else:
+                        print("+")
+
+
+    def middle():
+        x = n
+        if (x) % 2 != 0:
+            x += 1
+
+        for i in range(m):
+            print("|", end=" ")
+            for i in range(n):
+                for i in range(m):
+                    print(" ", end=" ")
+                print("|", end=" ")
+            print()
+
+
+
+
+    def end():
+        x = n
+        zborce=0
+        if (x) % 2 != 0:
+                x += 1
+        for i in range(n):
+                zborce+=1
+                if (x > 6):
+                        if(i==0):
+                            print("+", end=" ")
+                        for i in range(m):
+                            print("-", end=" ")
+                        if (zborce <= n-1):
+                            print("+", end=" ")
+                        else:
+                            print("+")
+
+                else:
+                    if(i==0):
+                        print("+", end=" ")
+                    for i in range(m):
+                        print("-", end=" ")
+                    if (zborce<=n-1):
+                        print("+", end=" ")
+                    else:
+                        print("+")
+
+            #I defined the functions inside the main function. I guess I could have used a class but I don't think we were supposed to
+            #I did this to handle the scope issue of n being defined.
+    for j in range(n):
+            if j<1:
+                beggining()
+            middle()
+            end()
+
+cela1(6,5)
