@@ -174,7 +174,7 @@ def cela(n):
             middle()
             end()
 
-cela(3)
+cela(12)
 
 '''
 
@@ -309,4 +309,4 @@ def cela1(n,m):
             middle()
             end()
 
-cela1(6,5)
+cela1(3,4)
